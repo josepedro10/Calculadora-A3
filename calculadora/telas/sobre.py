@@ -39,7 +39,7 @@ class TelaSobre(tk.Frame):
 
         # Container
         container = tk.Frame(self, bg=cores["bg_janela"])
-        container.place(relx=0.5, rely=0.52, anchor="center", width=520, height=500)
+        container.place(relx=0.5, rely=0.52, anchor="center", width=650, height=600)
         
         # Área com scroll
         canvas = tk.Canvas(container, bg=cores["bg_janela"], highlightthickness=0)
@@ -55,10 +55,17 @@ class TelaSobre(tk.Frame):
         
         # Cards
         self.criar_card(frame_scroll, cores, "📱 Calculadora Multifuncional",
-                       "Projeto desenvolvido para a disciplina de Programação\ncom Python e Tkinter")
+                       "Projeto desenvolvido para as disciplinas de Algoritmos de Programação e \nInteração Humano Computador")
         
+        # Card de Desenvolvedores com TODOS os nomes
         self.criar_card(frame_scroll, cores, "👥 Desenvolvedores",
-                       "João Silva - Programação\nMaria Santos - Design\nPedro Oliveira - Testes")
+                       "• José Pedro Costa Alves Dionsio\n"
+                       "• Riquelme Vieira Barbosa\n"
+                       "• Gustavo Brito Almeida Santana\n"
+                       "• Guilherme Eduardo Figueiredo Pereira\n"
+                       "• Pedro Almeida Ribeiro Dobarco\n"
+                       "• Caio Santos Fraga\n"
+                       "• Maria Clara Dias Matos")
         
         self.criar_card(frame_scroll, cores, "🛠️ Tecnologias",
                        "• Python 3\n• Tkinter (GUI)\n• Biblioteca Math")
@@ -69,7 +76,7 @@ class TelaSobre(tk.Frame):
         self.criar_card(frame_scroll, cores, "🎯 Objetivo",
                        "Criar uma aplicação prática que reúna várias\nferramentas úteis em uma interface moderna.")
         
-        self.criar_card(frame_scroll, cores, "📅 Versão", "Versão 2.0 - 2024")
+        self.criar_card(frame_scroll, cores, "📅 Ano", "2026")
         
         tk.Frame(frame_scroll, height=20, bg=cores["bg_janela"]).pack()
         
@@ -82,6 +89,7 @@ class TelaSobre(tk.Frame):
                  command=lambda: self.controller.mostrar_tela("HOME")).pack()
 
     def criar_card(self, parent, cores, titulo, conteudo):
+        """Cria um card com título e conteúdo"""
         card_borda = tk.Frame(parent, bg="#000000", padx=1, pady=1)
         card_borda.pack(fill="x", padx=20, pady=8)
         
@@ -90,8 +98,10 @@ class TelaSobre(tk.Frame):
         
         tk.Label(card, text=titulo, font=("Georgia", 12, "bold"),
                 bg=cores["bg_card"], fg=cores["texto_principal"]).pack(anchor="w")
+        
         tk.Label(card, text=conteudo, font=("Helvetica", 10),
                 bg=cores["bg_card"], fg=cores["texto_secundario"], justify="left").pack(anchor="w", pady=(5, 0))
 
-    def atualizar_tela(self):
+    def atualizar_tema(self):
+        """Atualiza as cores sem recriar a tela"""
         self.criar_interface()
