@@ -1,6 +1,93 @@
-# Calculadora-A3
+# 🧮 Calculadora Multifuncional
 
-gui
+## 📋 Sobre o Projeto
 
+Este projeto foi desenvolvido como trabalho acadêmico para as disciplinas de **Algoritmos de Programação** e **Interação Humano Computador**, do curso de **Análise e Desenvolvimento de Sistemas** da **UNIFG - Campus São Sebastião**, localizado em **Guanambi - BA**.
 
-brita
+A aplicação consiste em uma **calculadora multifuncional com interface gráfica**, desenvolvida em **Python** utilizando a biblioteca **Tkinter**, reunindo diversas ferramentas úteis em um só lugar.
+
+---
+
+## 👥 Desenvolvedores
+
+| Nome                                 | Função         |
+| ------------------------------------ | -------------- |
+| José Pedro Costa Alves Dionísio      | Desenvolvedor  |
+| Riquelme Vieira Barbosa              | Desenvolvedor  |
+| Gustavo Brito Almeida Santana        | Desenvolvedor  |
+| Guilherme Eduardo Figueiredo Pereira | Desenvolvedor  |
+| Pedro Almeida Ribeiro Dobarco        | Desenvolvedor  |
+| Caio Santos Fraga                    | Desenvolvedor  |
+| Maria Clara Dias Matos               | Desenvolvedora |
+
+---
+
+## 🏫 Instituição de Ensino
+
+| Informação  | Detalhe                                                 |
+| ----------- | ------------------------------------------------------- |
+| Faculdade   | UNIFG - Centro Universitário                            |
+| Campus      | São Sebastião                                           |
+| Localização | Guanambi - Bahia                                        |
+| Curso       | Análise e Desenvolvimento de Sistemas                   |
+| Disciplinas | Algoritmos de Programação / Interação Humano Computador |
+
+---
+
+## ⚙️ Funcionalidades
+
+A calculadora conta com as seguintes ferramentas:
+
+| Funcionalidade       | Descrição                                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------------------------- |
+| 🧮 Calculadora       | Operações básicas (+, -, ×, ÷), porcentagem (%), raiz quadrada (√), parênteses e inversão de sinal (+/-) |
+| ⚡ Consumo de Energia | Calcula o consumo mensal e o custo de aparelhos elétricos                                                |
+| 📊 Média             | Calcula a média de valores com campos dinâmicos                                                          |
+| ⚖️ IMC               | Calcula o Índice de Massa Corporal com classificação colorida                                            |
+| 📖 Sobre             | Informações sobre o projeto e desenvolvedores                                                            |
+| 🌓 Temas             | Alternância entre tema claro e escuro                                                                    |
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+| Tecnologia | Versão | Descrição                            |
+| ---------- | ------ | ------------------------------------ |
+| Python     | 3.x    | Linguagem de programação             |
+| Tkinter    | Padrão | Biblioteca para interface gráfica    |
+| Math       | Padrão | Biblioteca para cálculos matemáticos |
+
+---
+
+## 🚀 Como Executar o Projeto
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+```
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd seu-repositorio
+```
+
+3. Execute o programa:
+
+```bash
+python main.py
+```
+
+---
+
+## 📌 Observações
+
+* Certifique-se de ter o **Python 3.x** instalado.
+* O Tkinter já vem instalado por padrão na maioria das distribuições do Python.
+
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins acadêmicos.
