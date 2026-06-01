@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from theme import ThemeConfig
-from calculations import calcular_imc
+from calculations import calcular_imc, validar_numero
 
 
 class TelaIMC(tk.Frame):
@@ -46,6 +46,9 @@ class TelaIMC(tk.Frame):
         self.peso = tk.StringVar()
         self.altura = tk.StringVar()
         
+        # Validação para números
+        vcmd = (self.register(validar_numero), '%S', '%P')
+        
         # Peso
         tk.Label(container, text="Peso (kg)", font=ThemeConfig.FONTE_BOTAO,
                 bg=cores["bg_janela"], fg=cores["texto_principal"]).pack(fill="x", pady=(15, 3))
@@ -53,7 +56,8 @@ class TelaIMC(tk.Frame):
         input_peso.pack(fill="x", pady=(0, 15))
         tk.Entry(input_peso, textvariable=self.peso, font=ThemeConfig.FONTE_TEXTO,
                 bg=cores["bg_input"], fg=cores["texto_input"], bd=0,
-                insertbackground=cores["texto_input"], justify="center").pack(fill="x", ipady=8)
+                insertbackground=cores["texto_input"], justify="center",
+                validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
         
         # Altura
         tk.Label(container, text="Altura (m)", font=ThemeConfig.FONTE_BOTAO,
@@ -62,7 +66,8 @@ class TelaIMC(tk.Frame):
         input_altura.pack(fill="x", pady=(0, 20))
         tk.Entry(input_altura, textvariable=self.altura, font=ThemeConfig.FONTE_TEXTO,
                 bg=cores["bg_input"], fg=cores["texto_input"], bd=0,
-                insertbackground=cores["texto_input"], justify="center").pack(fill="x", ipady=8)
+                insertbackground=cores["texto_input"], justify="center",
+                validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
         
         # Botão
         btn_calc = tk.Frame(container, bg="#000000", padx=1, pady=1)

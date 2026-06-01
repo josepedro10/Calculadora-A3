@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from theme import ThemeConfig
-from calculations import calcular_media
+from calculations import calcular_media, validar_numero
 
 
 class TelaMedia(tk.Frame):
@@ -117,7 +117,6 @@ class TelaMedia(tk.Frame):
         frame_rodape = tk.Frame(container, bg=cores["bg_janela"])
         frame_rodape.pack(fill="x", pady=(15, 10))
         
-        # Centralizar os textos do rodapé
         tk.Label(frame_rodape, text="POR", font=("Helvetica", 9, "bold"),
                 bg=cores["bg_janela"], fg=cores["texto_secundario"]).pack(side="left", padx=20)
         
@@ -144,6 +143,9 @@ class TelaMedia(tk.Frame):
         idx = len(self.lista_entries) + 1
         cores = ThemeConfig.pegar_paleta(self.controller.tema_atual)
         
+        # Validação para números
+        vcmd = (self.register(validar_numero), '%S', '%P')
+        
         # Frame do campo
         frame_campo = tk.Frame(self.frame_valores, bg=self.frame_valores["bg"])
         frame_campo.pack(fill="x", pady=5)
@@ -165,7 +167,8 @@ class TelaMedia(tk.Frame):
         entry = tk.Entry(entry_borda, font=("Helvetica", 11), 
                         bg=cores["bg_input"], fg=cores["texto_input"],
                         bd=0, insertbackground=cores["texto_input"],
-                        justify="center")
+                        justify="center",
+                        validate="key", validatecommand=vcmd)
         entry.pack(fill="x", ipady=5, padx=5, pady=2)
 
         # Botão remover com borda preta
@@ -213,17 +216,16 @@ class TelaMedia(tk.Frame):
             media = calcular_media(valores)
             self.resultado_var.set(f"{media:.2f}")
             
-            # Muda a cor do resultado para verde
             cores = ThemeConfig.pegar_paleta(self.controller.tema_atual)
             self.lbl_resultado.configure(fg=cores["cor_sucesso"])
             
         except ValueError as e:
             self.resultado_var.set("Erro!")
-            self.lbl_resultado.configure(fg="#E74C3C")  # Vermelho
+            self.lbl_resultado.configure(fg="#E74C3C")
             messagebox.showerror("Erro", str(e))
         except Exception:
             self.resultado_var.set("Erro!")
-            self.lbl_resultado.configure(fg="#E74C3C")  # Vermelho
+            self.lbl_resultado.configure(fg="#E74C3C")
             messagebox.showerror("Erro", "Valores inválidos. Use números.")
 
     def atualizar_tema(self):

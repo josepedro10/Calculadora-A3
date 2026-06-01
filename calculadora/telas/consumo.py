@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from theme import ThemeConfig
-from calculations import calcular_consumo
+from calculations import calcular_consumo, validar_numero
 
 
 class TelaConsumo(tk.Frame):
@@ -48,6 +48,9 @@ class TelaConsumo(tk.Frame):
         self.dias = tk.StringVar()
         self.preco = tk.StringVar(value="0.75")
 
+        # Validação para números
+        vcmd = (self.register(validar_numero), '%S', '%P')
+
         # Potência
         tk.Label(container, text="Potência do aparelho (W)", 
                 font=ThemeConfig.FONTE_BOTAO,
@@ -56,7 +59,8 @@ class TelaConsumo(tk.Frame):
         input_pot.pack(fill="x", pady=(0, 10))
         tk.Entry(input_pot, textvariable=self.potencia, font=ThemeConfig.FONTE_TEXTO,
                 bg=cores["bg_input"], fg=cores["texto_input"], bd=0,
-                insertbackground=cores["texto_input"], justify="center").pack(fill="x", ipady=8)
+                insertbackground=cores["texto_input"], justify="center",
+                validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
 
         # Horas
         tk.Label(container, text="Horas de uso por dia", 
@@ -66,7 +70,8 @@ class TelaConsumo(tk.Frame):
         input_horas.pack(fill="x", pady=(0, 10))
         tk.Entry(input_horas, textvariable=self.horas, font=ThemeConfig.FONTE_TEXTO,
                 bg=cores["bg_input"], fg=cores["texto_input"], bd=0,
-                insertbackground=cores["texto_input"], justify="center").pack(fill="x", ipady=8)
+                insertbackground=cores["texto_input"], justify="center",
+                validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
 
         # Dias
         tk.Label(container, text="Dias por mês", 
@@ -76,7 +81,8 @@ class TelaConsumo(tk.Frame):
         input_dias.pack(fill="x", pady=(0, 10))
         tk.Entry(input_dias, textvariable=self.dias, font=ThemeConfig.FONTE_TEXTO,
                 bg=cores["bg_input"], fg=cores["texto_input"], bd=0,
-                insertbackground=cores["texto_input"], justify="center").pack(fill="x", ipady=8)
+                insertbackground=cores["texto_input"], justify="center",
+                validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
 
         # Preço
         tk.Label(container, text="Preço do kWh (R$)", 
@@ -86,7 +92,8 @@ class TelaConsumo(tk.Frame):
         input_preco.pack(fill="x", pady=(0, 15))
         tk.Entry(input_preco, textvariable=self.preco, font=ThemeConfig.FONTE_TEXTO,
                 bg=cores["bg_input"], fg=cores["texto_input"], bd=0,
-                insertbackground=cores["texto_input"], justify="center").pack(fill="x", ipady=8)
+                insertbackground=cores["texto_input"], justify="center",
+                validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
 
         # Botão
         btn_calc = tk.Frame(container, bg="#000000", padx=1, pady=1)
