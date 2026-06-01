@@ -19,6 +19,8 @@ class TelaHome(tk.Frame):
         self.frame_botoes_inferiores = None
         self.btn_sobre_borda = None
         self.btn_tema_borda = None
+        self.label_funcionalidades = None  # <-- NOVA REFERÊNCIA
+        self.linha_separadora = None       # <-- NOVA REFERÊNCIA
         
         self.criar_interface()
 
@@ -54,12 +56,14 @@ class TelaHome(tk.Frame):
         self.btn_entrar.pack()
 
         # Linha separadora
-        tk.Frame(self.card, height=2, bg="#666666").pack(fill="x", padx=80, pady=30)
+        self.linha_separadora = tk.Frame(self.card, height=2, bg="#666666")
+        self.linha_separadora.pack(fill="x", padx=80, pady=30)
 
         # Texto "Funcionalidades:"
-        tk.Label(self.card, text="Funcionalidades disponíveis:", 
-                font=("Georgia", 14, "bold"),
-                bg=cores["bg_card"], fg=cores["texto_principal"]).pack(pady=(10, 15))
+        self.label_funcionalidades = tk.Label(self.card, text="Funcionalidades disponíveis:", 
+                                              font=("Georgia", 14, "bold"),
+                                              bg=cores["bg_card"], fg=cores["texto_principal"])
+        self.label_funcionalidades.pack(pady=(10, 15))
 
         # Frame para as funcionalidades (2 colunas)
         self.frame_funcs = tk.Frame(self.card, bg=cores["bg_card"])
@@ -131,15 +135,16 @@ class TelaHome(tk.Frame):
         # Atualiza o frame dos botões inferiores
         self.frame_botoes_inferiores.configure(bg=cores["bg_card"])
         
-        # Atualiza as bordas dos botões (sempre pretas, não precisa mudar)
-        
-        # Atualiza o título
+        # Atualiza o título principal
         self.label_titulo.configure(bg=cores["bg_card"], fg=cores["texto_principal"])
+        
+        # Atualiza o título "Funcionalidades disponíveis"
+        self.label_funcionalidades.configure(bg=cores["bg_card"], fg=cores["texto_principal"])
         
         # Atualiza o botão Entrar
         self.btn_entrar.configure(bg=cores["bg_botao_primario"], fg=cores["texto_botao_primario"])
         
-        # Atualiza frame das funcionalidades
+        # Atualiza frame das funcionalidades e seus labels
         self.frame_funcs.configure(bg=cores["bg_card"])
         for child in self.frame_funcs.winfo_children():
             if isinstance(child, tk.Label):
