@@ -61,10 +61,11 @@ class AppCalculadora(tk.Tk):
         # Atualiza a cor da janela principal
         cores = ThemeConfig.pegar_paleta(self.tema_atual)
         self.configure(bg=cores["bg_janela"])
+        self.container.configure(bg=cores["bg_janela"])
         
-        # Atualiza APENAS a tela que está visível no momento
-        if self.tela_atual and self.tela_atual in self.telas:
-            self.telas[self.tela_atual].atualizar_tema()
+        # Atualiza TODAS as telas que já foram criadas
+        for nome_tela, tela in self.telas.items():
+            tela.atualizar_tema()
 
 
 if __name__ == "__main__":
