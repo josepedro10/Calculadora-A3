@@ -113,7 +113,7 @@ class TelaMedia(tk.Frame):
                                       bg=cores["bg_display"], fg=cores["cor_sucesso"])
         self.lbl_resultado.pack()
 
-        # Rodapé com informações (POR, PTB2, Data)
+        # Rodapé com informações
         frame_rodape = tk.Frame(container, bg=cores["bg_janela"])
         frame_rodape.pack(fill="x", pady=(15, 10))
         
@@ -143,14 +143,11 @@ class TelaMedia(tk.Frame):
         idx = len(self.lista_entries) + 1
         cores = ThemeConfig.pegar_paleta(self.controller.tema_atual)
         
-        # Validação para números
         vcmd = (self.register(validar_numero), '%S', '%P')
         
-        # Frame do campo
         frame_campo = tk.Frame(self.frame_valores, bg=self.frame_valores["bg"])
         frame_campo.pack(fill="x", pady=5)
 
-        # Label com borda preta
         label_borda = tk.Frame(frame_campo, bg="#000000", padx=1, pady=1)
         label_borda.pack(side="left", padx=(0, 10))
         
@@ -160,7 +157,6 @@ class TelaMedia(tk.Frame):
                         width=10, padx=5, pady=5)
         label.pack()
 
-        # Campo de entrada com borda preta
         entry_borda = tk.Frame(frame_campo, bg="#000000", padx=1, pady=1)
         entry_borda.pack(side="left", expand=True, fill="x")
         
@@ -171,7 +167,6 @@ class TelaMedia(tk.Frame):
                         validate="key", validatecommand=vcmd)
         entry.pack(fill="x", ipady=5, padx=5, pady=2)
 
-        # Botão remover com borda preta
         remover_borda = tk.Frame(frame_campo, bg="#000000", padx=1, pady=1)
         remover_borda.pack(side="right", padx=(10, 0))
         
@@ -185,14 +180,12 @@ class TelaMedia(tk.Frame):
         self.renomear_labels()
 
     def remover_campo(self, frame_campo, entry):
-        """Remove um campo de entrada"""
         if entry in self.lista_entries:
             self.lista_entries.remove(entry)
         frame_campo.destroy()
         self.renomear_labels()
 
     def renomear_labels(self):
-        """Renomeia os labels dos campos após remoção"""
         for i, entry in enumerate(self.lista_entries):
             parent = entry.master.master
             for child in parent.winfo_children():
@@ -202,7 +195,6 @@ class TelaMedia(tk.Frame):
                             subchild.config(text=f"Valor {i + 1}:")
 
     def calcular(self):
-        """Calcula a média dos valores inseridos"""
         try:
             valores = []
             for entry in self.lista_entries:

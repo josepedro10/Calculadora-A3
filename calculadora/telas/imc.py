@@ -46,7 +46,6 @@ class TelaIMC(tk.Frame):
         self.peso = tk.StringVar()
         self.altura = tk.StringVar()
         
-        # Validação para números
         vcmd = (self.register(validar_numero), '%S', '%P')
         
         # Peso
@@ -105,7 +104,8 @@ class TelaIMC(tk.Frame):
                  bd=0, padx=10, pady=4, cursor="hand2",
                  command=lambda: self.controller.mostrar_tela("HOME")).pack()
 
-    def atualizar_tela(self):
+    def atualizar_tema(self):
+        """Atualiza as cores sem recriar a tela"""
         self.criar_interface()
 
     def calcular(self):
