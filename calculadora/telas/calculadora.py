@@ -50,7 +50,7 @@ class TelaCalculadora(tk.Frame):
             btn.pack(side="left", expand=True, fill="x", padx=5)
             self.botoes_aba.append(btn)
 
-        # Container da calculadora
+        # Container
         self.calc_container = tk.Frame(self, bg=cores["bg_janela"])
         self.calc_container.place(relx=0.5, rely=0.52, anchor="center", width=400, height=520)
 
