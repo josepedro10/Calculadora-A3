@@ -77,7 +77,8 @@ class TelaSobre(tk.Frame):
                        "• Guilherme Eduardo Figueiredo Pereira\n"
                        "• Pedro Almeida Ribeiro Dobarco\n"
                        "• Caio Santos Fraga\n"
-                       "• Maria Clara Dias Matos")
+                       "• Maria Clara Dias Matos\n"
+                       "• Icaro Carlos Silva Santos")
         
         self.criar_card(self.frame_scroll, cores, "🛠️ Tecnologias",
                        "• Python 3\n• Tkinter (GUI)\n• Biblioteca Math")

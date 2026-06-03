@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import tkinter as tk
 import math
 from theme import ThemeConfig
@@ -11,7 +10,6 @@ class TelaCalculadora(tk.Frame):
         self.expressao = "0"
         self.novo_numero = False
         
-        # Referências
         self.cabecalho = None
         self.botoes_aba = []
         self.calc_container = None
@@ -52,7 +50,7 @@ class TelaCalculadora(tk.Frame):
             btn.pack(side="left", expand=True, fill="x", padx=5)
             self.botoes_aba.append(btn)
 
-        # Container da calculadora
+        # Container
         self.calc_container = tk.Frame(self, bg=cores["bg_janela"])
         self.calc_container.place(relx=0.5, rely=0.52, anchor="center", width=400, height=520)
 
@@ -101,6 +99,7 @@ class TelaCalculadora(tk.Frame):
             btn_borda = tk.Frame(self.grid_botoes, bg="#000000", padx=1, pady=1)
             btn_borda.grid(row=linha, column=coluna, padx=3, pady=3, sticky="nsew")
             self.botoes_borda.append(btn_borda)
+            
 
             btn = tk.Button(btn_borda, text=texto,
                            font=("Georgia", 16, "bold") if tipo in ["numero", "laranja"] else ("Helvetica", 16, "bold"),
@@ -109,7 +108,6 @@ class TelaCalculadora(tk.Frame):
             btn.pack(fill="both", expand=True)
             self.botoes.append(btn)
 
-        # Botão Home
         self.home_borda = tk.Frame(self, bg="#000000", padx=1, pady=1)
         self.home_borda.place(relx=0.05, rely=0.95, anchor="sw")
         self.btn_home = tk.Button(self.home_borda, text="⌂", font=("Helvetica", 14, "bold"),
@@ -122,29 +120,22 @@ class TelaCalculadora(tk.Frame):
         """Atualiza as cores sem recriar a tela"""
         cores = ThemeConfig.pegar_paleta(self.controller.tema_atual)
         
-        # Atualiza fundo da tela
         self.configure(bg=cores["bg_janela"])
         
-        # Atualiza cabeçalho
         self.cabecalho.configure(bg=cores["bg_janela"])
         
-        # Atualiza container da calculadora
         self.calc_container.configure(bg=cores["bg_janela"])
         
-        # Atualiza grid de botões
         self.grid_botoes.configure(bg=cores["bg_janela"])
         
-        # Atualiza botões do cabeçalho
         abas = ["CALCULADORA", "CONSUMO", "MEDIA", "IMC", "SOBRE"]
         for i, btn in enumerate(self.botoes_aba):
             ativa = (abas[i] == "CALCULADORA")
             cor = cores["texto_principal"] if ativa else cores["texto_secundario"]
             btn.configure(fg=cor, bg=cores["bg_janela"])
         
-        # Atualiza visor
         self.lbl_display.configure(bg=cores["bg_display"], fg=cores["texto_display"])
         
-        # Atualiza botões da calculadora
         tipos_botoes = [
             "cinza", "cinza", "cinza", "laranja",
             "numero", "numero", "numero", "laranja",
@@ -163,7 +154,6 @@ class TelaCalculadora(tk.Frame):
             else:
                 btn.configure(bg=cores["bg_botao_laranja"], fg=cores["texto_botao_laranja"])
         
-        # Atualiza botão home
         self.btn_home.configure(bg=cores["bg_botao_numero"], fg=cores["texto_botao_numero"])
 
     def clique_botao(self, valor):
