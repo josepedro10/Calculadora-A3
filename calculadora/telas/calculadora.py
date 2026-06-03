@@ -96,7 +96,9 @@ class TelaCalculadora(tk.Frame):
                 bg_cor = cores["bg_botao_laranja"]
                 fg_cor = cores["texto_botao_laranja"]
 
-
+            btn_borda = tk.Frame(self.grid_botoes, bg="#000000", padx=1, pady=1)
+            btn_borda.grid(row=linha, column=coluna, padx=3, pady=3, sticky="nsew")
+            self.botoes_borda.append(btn_borda)
             
 
             btn = tk.Button(btn_borda, text=texto,
