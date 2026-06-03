@@ -7,7 +7,6 @@ class TelaSobre(tk.Frame):
         super().__init__(parent)
         self.controller = controller
         
-        # Referências
         self.cabecalho = None
         self.botoes_aba = []
         self.container = None
