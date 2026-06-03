@@ -59,7 +59,7 @@ class TelaIMC(tk.Frame):
                 validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
         
         # Altura
-        tk.Label(container, text="Altura (m)", font=ThemeConfig.FONTE_BOTAO,
+        tk.Label(container, text="Altura (cm)", font=ThemeConfig.FONTE_BOTAO,
                 bg=cores["bg_janela"], fg=cores["texto_principal"]).pack(fill="x", pady=(5, 3))
         input_altura = tk.Frame(container, bg="#000000", padx=1, pady=1)
         input_altura.pack(fill="x", pady=(0, 20))
