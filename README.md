@@ -19,7 +19,8 @@ A aplicação consiste em uma **calculadora multifuncional com interface gráfic
 | Pedro Almeida Ribeiro Dobarco        | Desenvolvedor  |
 | Caio Santos Fraga                    | Desenvolvedor  |
 | Maria Clara Dias Matos               | Desenvolvedora |
-
+| Icaro Carlos Silva Santos            | Desenvolvedor |
+Icaro Carlos Silva Santos
 ---
 
 ##  Instituição de Ensino
