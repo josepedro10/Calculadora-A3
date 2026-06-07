@@ -77,7 +77,7 @@ class TelaSobre(tk.Frame):
                        "• Icaro Carlos Silva Santos")
         
         self.criar_card(self.frame_scroll, cores, "🛠️ Tecnologias",
-                       "• Python 3\n• Tkinter (GUI)\n• Biblioteca Math")
+                       "• Python 3\n• Tkinter \n• Biblioteca Math")
         
         self.criar_card(self.frame_scroll, cores, "⚙️ Funcionalidades",
                        "• Calculadora (+, -, x, ÷, %, √)\n• Consumo de energia elétrica\n• Média de valores\n• Cálculo de IMC\n• Tema claro/escuro")
