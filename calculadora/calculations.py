@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 
 def validar_numero(char, texto_atual):
-    """
-    Função para validar se o caractere digitado é permitido em campos numéricos.
-    Permite: números, vírgula, ponto e backspace.
-    """
+
     # Permite backspace (código 8) e delete (código 127)
     if char == '':
         return True
