@@ -19,8 +19,8 @@ class TelaHome(tk.Frame):
         self.frame_botoes_inferiores = None
         self.btn_sobre_borda = None
         self.btn_tema_borda = None
-        self.label_funcionalidades = None  # <-- NOVA REFERÊNCIA
-        self.linha_separadora = None       # <-- NOVA REFERÊNCIA
+        self.label_funcionalidades = None  
+        self.linha_separadora = None      
         
         self.criar_interface()
 
@@ -65,7 +65,7 @@ class TelaHome(tk.Frame):
                                               bg=cores["bg_card"], fg=cores["texto_principal"])
         self.label_funcionalidades.pack(pady=(10, 15))
 
-        # Frame para as funcionalidades (2 colunas)
+        # Frame para as funcionalidades
         self.frame_funcs = tk.Frame(self.card, bg=cores["bg_card"])
         self.frame_funcs.pack(pady=10, padx=80, fill="x")
 
@@ -78,7 +78,7 @@ class TelaHome(tk.Frame):
             "📖 Sobre o projeto"
         ]
 
-        # Divide em 2 colunas
+
         for i, func in enumerate(funcionalidades):
             linha = i // 2
             coluna = i % 2
@@ -89,7 +89,7 @@ class TelaHome(tk.Frame):
                           anchor="w")
             lbl.grid(row=linha, column=coluna, padx=20, pady=8, sticky="w")
 
-        # ========== FRAME PARA OS BOTÕES INFERIORES ==========
+        # Botoôes inferiores (Sobre e Tema)
         self.frame_botoes_inferiores = tk.Frame(self.card, bg=cores["bg_card"])
         self.frame_botoes_inferiores.pack(side="bottom", fill="x", pady=(0, 20))
 
