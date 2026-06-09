@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import tkinter as tk
 from theme import ThemeConfig
 
@@ -8,7 +7,6 @@ class TelaSobre(tk.Frame):
         super().__init__(parent)
         self.controller = controller
         
-        # Referências
         self.cabecalho = None
         self.botoes_aba = []
         self.container = None
@@ -54,7 +52,6 @@ class TelaSobre(tk.Frame):
         self.container = tk.Frame(self, bg=cores["bg_janela"])
         self.container.place(relx=0.5, rely=0.52, anchor="center", width=650, height=600)
         
-        # Área com scroll
         self.canvas = tk.Canvas(self.container, bg=cores["bg_janela"], highlightthickness=0)
         self.scroll = tk.Scrollbar(self.container, orient=tk.VERTICAL, command=self.canvas.yview)
         self.frame_scroll = tk.Frame(self.canvas, bg=cores["bg_janela"])
@@ -66,7 +63,6 @@ class TelaSobre(tk.Frame):
         self.canvas.pack(side="left", fill="both", expand=True)
         self.scroll.pack(side="right", fill="y")
         
-        # Cards
         self.criar_card(self.frame_scroll, cores, "📱 Calculadora Multifuncional",
                        "Projeto desenvolvido para as disciplinas de Algoritmos de Programação e \nInteração Humano Computador")
         
@@ -81,7 +77,7 @@ class TelaSobre(tk.Frame):
                        "• Icaro Carlos Silva Santos")
         
         self.criar_card(self.frame_scroll, cores, "🛠️ Tecnologias",
-                       "• Python 3\n• Tkinter (GUI)\n• Biblioteca Math")
+                       "• Python 3\n• Tkinter \n• Biblioteca Math")
         
         self.criar_card(self.frame_scroll, cores, "⚙️ Funcionalidades",
                        "• Calculadora (+, -, x, ÷, %, √)\n• Consumo de energia elétrica\n• Média de valores\n• Cálculo de IMC\n• Tema claro/escuro")
@@ -93,7 +89,6 @@ class TelaSobre(tk.Frame):
         
         tk.Frame(self.frame_scroll, height=20, bg=cores["bg_janela"]).pack()
         
-        # Botão Home
         home_borda = tk.Frame(self, bg="#000000", padx=1, pady=1)
         home_borda.place(relx=0.05, rely=0.95, anchor="sw")
         tk.Button(home_borda, text="⌂", font=("Helvetica", 14, "bold"),
@@ -117,7 +112,6 @@ class TelaSobre(tk.Frame):
                                bg=cores["bg_card"], fg=cores["texto_secundario"], justify="left")
         lbl_conteudo.pack(anchor="w", pady=(5, 0))
         
-        # Guarda referências para atualizar depois
         self.cards.append({
             "borda": card_borda,
             "card": card,
@@ -129,31 +123,25 @@ class TelaSobre(tk.Frame):
         """Atualiza as cores sem recriar a tela"""
         cores = ThemeConfig.pegar_paleta(self.controller.tema_atual)
         
-        # Atualiza fundo da tela
         self.configure(bg=cores["bg_janela"])
         
-        # Atualiza cabeçalho
         self.cabecalho.configure(bg=cores["bg_janela"])
         
-        # Atualiza botões do cabeçalho
         abas = ["CALCULADORA", "CONSUMO", "MEDIA", "IMC", "SOBRE"]
         for i, btn in enumerate(self.botoes_aba):
             ativa = (abas[i] == "SOBRE")
             cor = cores["texto_principal"] if ativa else cores["texto_secundario"]
             btn.configure(fg=cor, bg=cores["bg_janela"])
         
-        # Atualiza container e canvas
         self.container.configure(bg=cores["bg_janela"])
         self.canvas.configure(bg=cores["bg_janela"])
         self.frame_scroll.configure(bg=cores["bg_janela"])
         
-        # Atualiza todos os cards
         for card_info in self.cards:
             card_info["card"].configure(bg=cores["bg_card"])
             card_info["titulo"].configure(bg=cores["bg_card"], fg=cores["texto_principal"])
             card_info["conteudo"].configure(bg=cores["bg_card"], fg=cores["texto_secundario"])
         
-        # Atualiza botão home (se existir)
         for widget in self.winfo_children():
             if isinstance(widget, tk.Frame):
                 for sub in widget.winfo_children():

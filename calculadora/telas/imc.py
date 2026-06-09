@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import tkinter as tk
 from tkinter import messagebox
 from theme import ThemeConfig
@@ -18,7 +17,6 @@ class TelaIMC(tk.Frame):
         for widget in self.winfo_children():
             widget.destroy()
         
-        # Cabeçalho
         cabecalho = tk.Frame(self, bg=cores["bg_janela"])
         cabecalho.pack(fill="x", padx=30, pady=(20, 0))
 
@@ -39,7 +37,6 @@ class TelaIMC(tk.Frame):
                            command=lambda k=chave: self.controller.mostrar_tela(k))
             btn.pack(side="left", expand=True, fill="x", padx=5)
 
-        # Container
         container = tk.Frame(self, bg=cores["bg_janela"])
         container.place(relx=0.5, rely=0.52, anchor="center", width=400, height=450)
         
@@ -68,7 +65,6 @@ class TelaIMC(tk.Frame):
                 insertbackground=cores["texto_input"], justify="center",
                 validate="key", validatecommand=vcmd).pack(fill="x", ipady=8)
         
-        # Botão
         btn_calc = tk.Frame(container, bg="#000000", padx=1, pady=1)
         btn_calc.pack(pady=(5, 20))
         tk.Button(btn_calc, text="Calcular IMC", font=("Georgia", 11, "bold"),
@@ -96,7 +92,6 @@ class TelaIMC(tk.Frame):
                                   bg=cores["bg_display"])
         self.lbl_status.pack()
         
-        # Botão Home
         home_borda = tk.Frame(self, bg="#000000", padx=1, pady=1)
         home_borda.place(relx=0.05, rely=0.95, anchor="sw")
         tk.Button(home_borda, text="⌂", font=("Helvetica", 14, "bold"),

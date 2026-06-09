@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 import tkinter as tk
 from tkinter import messagebox
 from theme import ThemeConfig
@@ -94,7 +94,7 @@ class TelaMedia(tk.Frame):
                                 bg=cores["bg_botao_acao"], fg=cores["texto_botao_acao"],
                                 bd=0, padx=20, pady=8, cursor="hand2",
                                 command=self.calcular)
-        btn_calcular.pack()
+      
 
         # Área de resultado
         self.resultado_var = tk.StringVar(value="---")
@@ -113,7 +113,6 @@ class TelaMedia(tk.Frame):
                                       bg=cores["bg_display"], fg=cores["cor_sucesso"])
         self.lbl_resultado.pack()
 
-        # Rodapé com informações
         frame_rodape = tk.Frame(container, bg=cores["bg_janela"])
         frame_rodape.pack(fill="x", pady=(15, 10))
         
@@ -126,7 +125,7 @@ class TelaMedia(tk.Frame):
         tk.Label(frame_rodape, text="01/06/2026", font=("Helvetica", 9, "bold"),
                 bg=cores["bg_janela"], fg=cores["texto_secundario"]).pack(side="right", padx=20)
 
-        # Botão Home
+        
         home_borda = tk.Frame(self, bg="#000000", padx=1, pady=1)
         home_borda.place(relx=0.05, rely=0.95, anchor="sw")
         tk.Button(home_borda, text="⌂", font=("Helvetica", 14, "bold"),
