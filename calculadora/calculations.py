@@ -1,18 +1,13 @@
-# -*- coding: utf-8 -*-
-
 def validar_numero(char, texto_atual):
 
-    # Permite backspace (código 8) e delete (código 127)
     if char == '':
         return True
     
-    # Permite dígitos
     if char.isdigit():
         return True
     
-    # Permite vírgula e ponto (apenas um)
     if char in [',', '.']:
-        # Verifica se já existe uma vírgula ou ponto no texto
+     
         if ',' in texto_atual or '.' in texto_atual:
             return False
         return True
